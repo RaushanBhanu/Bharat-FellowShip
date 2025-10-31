@@ -7,6 +7,7 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   const { languages, selectedLang, setSelectedLang } = useLanguage();
   const dropdownRef = useRef(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -21,7 +22,7 @@ const Header = () => {
   return (
     <header className="fixed top-0 w-full bg-white/60 backdrop-blur-md py-4 px-3 flex justify-between md:justify-around items-center z-50">
       <h1 className="font-bold text-lg md:text-2xl text-gray-800">
-        Our Voice, Our Right
+        {t("app.components.layouts.Header.site_title")}
       </h1>
 
       <div ref={dropdownRef} className="relative text-sm">

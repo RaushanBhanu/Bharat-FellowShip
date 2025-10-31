@@ -9,25 +9,41 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import { useLanguage } from "@/app/context/LanguageContext";
 
 export default function CompareStats({ district1, district2, data1, data2 }) {
+  const { t } = useLanguage();
+
   if (!data1 || !data2) return null;
 
   const latest1 = data1.at(-1);
   const latest2 = data2.at(-1);
 
+  // ✅ Use translation keys instead of hardcoded text
   const metrics = [
-    { key: "Total_Exp", label: "Total Expenditure (₹ Cr)" },
-    { key: "Total_Individuals_Worked", label: "Individuals Worked" },
-    { key: "Number_of_Completed_Works", label: "Completed Works" },
+    {
+      key: "Total_Exp",
+      label: t("app.components.districtComparison.CompareStats.total_expenditure"),
+    },
+    {
+      key: "Total_Individuals_Worked",
+      label: t("app.components.districtComparison.CompareStats.individuals_worked"),
+    },
+    {
+      key: "Number_of_Completed_Works",
+      label: t("app.components.districtComparison.CompareStats.completed_works"),
+    },
     {
       key: "Average_Wage_rate_per_day_per_person",
-      label: "Avg Wage / Day (₹)",
+      label: t("app.components.districtComparison.CompareStats.avg_wage"),
     },
-    { key: "Women_Persondays", label: "Women Persondays" },
+    {
+      key: "Women_Persondays",
+      label: t("app.components.districtComparison.CompareStats.women_persondays"),
+    },
     {
       key: "percentage_payments_gererated_within_15_days",
-      label: "% Payments in 15 Days",
+      label: t("app.components.districtComparison.CompareStats.payments_15_days"),
     },
   ];
 
@@ -45,7 +61,9 @@ export default function CompareStats({ district1, district2, data1, data2 }) {
         <table className="w-full border-collapse overflow-hidden">
           <thead>
             <tr className="bg-linear-to-r from-orange-500 to-green-500 text-white">
-              <th className="p-4 text-left text-lg font-semibold">Metric</th>
+              <th className="p-4 text-left text-lg font-semibold">
+                {t("app.components.districtComparison.CompareStats.metric_column")}
+              </th>
               <th className="p-4 text-lg font-semibold text-center">
                 {district1}
               </th>
@@ -73,12 +91,12 @@ export default function CompareStats({ district1, district2, data1, data2 }) {
       {/* 📈 Bar Chart Comparison */}
       <div className="bg-white rounded-2xl p-6 shadow-md">
         <h3 className="text-xl font-semibold text-gray-800 mb-4 text-center">
-          📉 Key Metrics Comparison
+          {t("app.components.districtComparison.CompareStats.key_metrics_comparison")}
         </h3>
-        <ResponsiveContainer width="100%" height={400}>
+        <ResponsiveContainer width="100%" height={600}>
           <BarChart
             data={chartData}
-            margin={{ top: 20, right: 40, left: 0, bottom: 60 }}
+            margin={{ top: 20, right: 40, left: 50, bottom: 150 }}
           >
             <XAxis
               dataKey="name"

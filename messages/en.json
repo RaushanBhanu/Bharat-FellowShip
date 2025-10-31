@@ -1,0 +1,114 @@
+{
+  "app": {
+    "components": {
+      "layouts": {
+        "DistrictSelector": {
+          "title": "Choose Your District",
+          "status_detecting": "Detecting your location...",
+          "auto_detected": "📍 Auto-detected: {district}",
+          "selected_district": "Selected District: {district}",
+          "select_prompt": "You can select your district below.",
+          "select_district_placeholder": "-- Select District --",
+          "select_year_placeholder": "-- Select Year --",
+          "compare_label": "Compare with another district",
+          "select_compare_placeholder": "-- Select District to Compare --",
+          "btn_compare": "📊 Compare Districts",
+          "btn_view_dashboard": "📈 View Dashboard",
+          "description": "You can view or compare MGNREGA performance data by district and year.",
+          "out_of_state_warning": "⚠️ {outOfStateDistrict} data is not available.",
+          "only_gujarat_supported": "Currently, only Gujarat district data is supported."
+        },
+        "Hero": {
+          "image_alt": "Farmers working in the field",
+          "title": "Our Voice, Our Rights",
+          "subtitle": "Know how your district is performing in MGNREGA"
+        },
+        "Footer": {
+          "crafted_with": "🌾 Crafted with ❤️ in Bihar",
+          "copyright": "© {year} Our Voice, Our Rights — All rights reserved."
+        },
+        "Header": {
+          "site_title": "Our Voice, Our Right",
+          "language_button_label": "Language"
+        }
+      },
+      "common": {
+        "NoDataPage": {
+          "no_data": "No data available",
+          "for_district_year": "for {district} in the year {year}.",
+          "try_different": "Try selecting a different year or district."
+        }
+      },
+      "dashboardComponents": {
+        "MonthlyTrendChart": {
+          "monthly_insights": "📈 Monthly Insights",
+          "total_expenditure": "Total Expenditure (₹ Crore)",
+          "individuals_vs_completed": "Individuals Worked vs Completed Works",
+          "average_wage": "Average Wage Rate per Day",
+          "women_persondays": "Women Persondays Distribution",
+          "payments_15_days": "% Payments Generated within 15 Days",
+          "individuals_worked": "Individuals Worked",
+          "completed_works": "Completed Works",
+          "avg_wage_label": "Avg Wage / Day (₹)"
+        }
+      },
+      "districtComparison": {
+        "CompareStats": {
+          "total_expenditure": "Total Expenditure (₹ Cr)",
+          "individuals_worked": "Individuals Worked",
+          "completed_works": "Completed Works",
+          "avg_wage": "Avg Wage / Day (₹)",
+          "women_persondays": "Women Persondays",
+          "payments_15_days": "% Payments in 15 Days",
+          "metric_column": "Metric",
+          "key_metrics_comparison": "📉 Key Metrics Comparison"
+        }
+      }
+    },
+    "notFound": {
+      "oops": "Arrey! Page Nahi Mili 😅",
+      "lost_line1": "Lagta hai aap galat raaste par aa gaye ho.",
+      "lost_line2": "The page you’re looking for doesn’t exist or might have moved.",
+      "home_button": "🏠 Wapas Home Chalo",
+      "footer_note": "Made with ❤️ in India"
+    },
+    "pages": {
+      "dashboard": {
+        "loading_dashboard": "Loading dashboard data...",
+        "dashboard_title": "📊 {district} District — {fin_year}",
+        "last_updated_month": "Last updated month: {month}",
+        "card_total_expenditure": "Total Expenditure (₹ Crore)",
+        "card_individuals_worked": "Individuals Worked",
+        "card_completed_works": "Completed Works",
+        "card_avg_wage": "Avg Wage/Day (₹)",
+        "card_women_persondays": "Women Persondays",
+        "card_payments_15d": "% Payment within 15 Days"
+      },
+      "districtComparison": {
+        "loading_comparison": "Loading comparison data...",
+        "no_data_warning": "⚠️ No data available for selected districts.",
+        "try_different": "Please try different districts or year.",
+        "comparison_title": "⚖️ District Comparison ({year}-{next_year})"
+      },
+      "home": {
+        "home_hero_title": "Our Voice, Our Rights",
+        "home_hero_subtitle": "Know how your district is performing in MGNREGA"
+      }
+    },
+    "layout": {
+      "meta_title": "Our Voice, Our Rights | MGNREGA District Dashboard",
+      "meta_description": "Explore MGNREGA district-level data on employment, expenditure, and development. 'Our Voice, Our Rights' makes government data accessible, transparent, and easy to understand for every citizen.",
+      "site_keywords": [
+        "MGNREGA",
+        "India",
+        "rural employment",
+        "data dashboard",
+        "open government data",
+        "transparency",
+        "Our Voice Our Rights",
+        "village development",
+        "district performance"
+      ]
+    }
+  }
+}

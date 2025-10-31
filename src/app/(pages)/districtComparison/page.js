@@ -1,8 +1,11 @@
 "use client";
+
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import CompareStats from "../../components/districtComparison/CompareStats";
 import LoadingPage from "../../components/common/LoadingPage";
+import NoDataPage from "../../components/common/NoDataPage";
+import { useLanguage } from "@/app/context/LanguageContext"; // ✅ custom hook
 
 export default function ComparePage() {
     const params = useSearchParams();
@@ -13,6 +16,8 @@ export default function ComparePage() {
     const [data1, setData1] = useState(null);
     const [data2, setData2] = useState(null);
     const [loading, setLoading] = useState(true);
+
+    const { t } = useLanguage(); // 🌐 Translation hook
 
     const API_BASE =
         "https://api.data.gov.in/resource/ee03643a-ee4c-48c2-ac30-9f2ff26ab722";
@@ -50,27 +55,33 @@ export default function ComparePage() {
         if (district1 && district2 && year) fetchData();
     }, [district1, district2, year]);
 
-    //  Loading State
-    if (loading) return <LoadingPage text="Loading comparison data..." />;
+    // 🕓 Loading State
+    if (loading)
+        return (
+            <LoadingPage text={t("app.pages.districtComparison.loading_comparison")} />
+        );
 
-    //  No Data Found
+    // 🚫 No Data Found
     if (!data1?.length || !data2?.length)
         return (
             <div className="min-h-screen flex flex-col justify-center items-center text-center p-10">
                 <h1 className="text-3xl font-bold mb-4 text-red-600">
-                    ⚠️ No data available for selected districts.
+                    {t("app.pages.districtComparison.no_data_warning")}
                 </h1>
                 <p className="text-gray-600 mb-8">
-                    Please try different districts or year.
+                    {t("app.pages.districtComparison.try_different")}
                 </p>
             </div>
         );
 
-    //  Render Comparison Stats
+    // 📊 Render Comparison Stats
     return (
         <div className="p-6 md:px-20 py-10 space-y-16 mt-16">
-            <h1 className="text-3xl font-bold">
-                ⚖️ District Comparison ({year}-{parseInt(year) + 1})
+            <h1 className="text-3xl font-bold text-gray-800">
+                {t("app.pages.districtComparison.comparison_title", {
+                    year,
+                    next_year: parseInt(year) + 1,
+                })}
             </h1>
 
             <CompareStats
