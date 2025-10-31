@@ -167,7 +167,7 @@ const ChartsSection = ({ data }) => {
         </div>
       ))}
 
-      {/* 🟣 Women Persondays */}
+      {/*  Women Persondays */}
       <div className="bg-white rounded-2xl shadow-md p-4 sm:p-6">
         <h3 className="text-base sm:text-lg font-semibold text-gray-700 mb-3 sm:mb-4">
           {t(
@@ -199,7 +199,7 @@ const ChartsSection = ({ data }) => {
         </div>
       </div>
 
-      {/* 🔴 Payment Efficiency */}
+      {/* Payment Efficiency */}
       <div className="bg-white rounded-2xl shadow-md p-4 sm:p-6">
         <h3 className="text-base sm:text-lg font-semibold text-gray-700 mb-3 sm:mb-4">
           {t(

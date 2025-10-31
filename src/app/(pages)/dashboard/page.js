@@ -14,7 +14,7 @@ const monthOrder = [
   "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
 ];
 
-// 🔹 Trend calculation helper
+// Trend calculation helper
 const calcTrend = (current, previous) => {
   const curr = parseFloat(current);
   const prev = parseFloat(previous);
@@ -22,7 +22,7 @@ const calcTrend = (current, previous) => {
   return (((curr - prev) / prev) * 100).toFixed(1);
 };
 
-// 🔹 Clean & Sort Records
+//  Clean & Sort Records
 const cleanAndSortRecords = (rawRecords) => {
   if (!rawRecords?.length) return [];
 
@@ -63,7 +63,7 @@ export default function DashboardPage() {
 
   const CACHE_TTL = 12 * 60 * 60 * 1000; // 12 hours
 
-  // ✅ Cleanup cache only once (not on every render)
+  // Cleanup cache only once (not on every render)
   useEffect(() => {
     Object.keys(localStorage).forEach((key) => {
       if (key.startsWith("data-")) {
@@ -80,7 +80,7 @@ export default function DashboardPage() {
     });
   }, []);
 
-  // ✅ Fetch data safely (no infinite loop)
+  //  Fetch data safely (no infinite loop)
   useEffect(() => {
     if (!district || !year) return;
 
@@ -89,7 +89,7 @@ export default function DashboardPage() {
       const cached = JSON.parse(localStorage.getItem(cacheKey));
 
       if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
-        console.log("✅ Using cached data for:", cacheKey);
+        console.log(" Using cached data for:", cacheKey);
         setRecords(cached.data);
         setLoading(false);
         return;
@@ -113,7 +113,7 @@ export default function DashboardPage() {
 
         setRecords(processedRecords);
       } catch (error) {
-        console.error("❌ Error fetching data:", error);
+        console.error(" Error fetching data:", error);
         setRecords([]);
       } finally {
         setLoading(false);
@@ -123,7 +123,7 @@ export default function DashboardPage() {
     fetchData();
   }, [district, year]);
 
-  // ✅ Latest record & localized months
+  //  Latest record & localized months
   const latest = useMemo(() => records.at(-1), [records]);
 
   const localizedRecords = useMemo(() => {
@@ -134,7 +134,7 @@ export default function DashboardPage() {
     }));
   }, [records, selectedLang]);
 
-  // ✅ Trends
+  //  Trends
   const trends = useMemo(() => {
     if (records.length < 2 || !latest) return {};
     const prev = records.at(-2);
@@ -151,7 +151,7 @@ export default function DashboardPage() {
     };
   }, [records, latest]);
 
-  // ✅ Loading / Empty states
+  //  Loading / Empty states
   if (loading) return <LoadingPage text={t("app.pages.dashboard.loading_dashboard")} />;
   if (!records.length || !latest)
     return <NoDataPage district={district} year={year} />;
@@ -172,7 +172,7 @@ export default function DashboardPage() {
         {t("app.pages.dashboard.last_updated_month", { month: translatedMonth })}
       </p>
 
-      {/* 📊 Cards */}
+      {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         <DashboardCard
           title={t("app.pages.dashboard.card_total_expenditure")}
@@ -206,7 +206,7 @@ export default function DashboardPage() {
         />
       </div>
 
-      {/* 📈 Charts */}
+      {/*  Charts */}
       <ChartsSection data={localizedRecords} />
     </div>
   );

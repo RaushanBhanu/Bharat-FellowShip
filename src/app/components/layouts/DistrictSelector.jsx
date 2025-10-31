@@ -26,13 +26,13 @@ const DistrictSelector = () => {
 const handleSubmit = () => {
   if (!district) return;
 
-  // 1️⃣ Always map to English before using in API call
+  //  Always map to English before using in API call
   const mappedDistrict =
     translations[selectedLang] === "en"
       ? district
       : districtMap[translations[selectedLang]][district] || district;
 
-  // 2️⃣ Use mappedDistrict directly for routing
+  //  Use mappedDistrict directly for routing
   if (compareMode && compareDistrict) {
     const mappedCompare =
       translations[selectedLang] === "en"

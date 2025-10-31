@@ -10,12 +10,12 @@ const NoDataPage = ({ district, year }) => {
     <div className="flex flex-col items-center justify-center h-screen text-gray-700 space-y-3">
       <AlertTriangle className="w-12 h-12 text-yellow-500" />
 
-      {/* 🔹 No data text */}
+      {/*  No data text */}
       <p className="text-xl font-semibold">
         {t("app.components.common.NoDataPage.no_data")}
       </p>
 
-      {/* 🔹 District + Year info */}
+      {/*  District + Year info */}
       {district && year && (
         <p className="text-gray-500 text-sm">
           {t("app.components.common.NoDataPage.for_district_year", {
@@ -25,7 +25,7 @@ const NoDataPage = ({ district, year }) => {
         </p>
       )}
 
-      {/* 🔹 Suggestion */}
+      {/*  Suggestion */}
       <p className="text-gray-400 text-xs mt-4">
         {t("app.components.common.NoDataPage.try_different")}
       </p>

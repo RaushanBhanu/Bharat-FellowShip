@@ -19,7 +19,7 @@ export default function CompareStats({ district1, district2, data1, data2 }) {
   const latest1 = data1.at(-1);
   const latest2 = data2.at(-1);
 
-  // ✅ Use translation keys instead of hardcoded text
+  //  Use translation keys instead of hardcoded text
   const metrics = [
     {
       key: "Total_Exp",
@@ -56,7 +56,7 @@ export default function CompareStats({ district1, district2, data1, data2 }) {
 
   return (
     <div className="space-y-10">
-      {/* 📊 Table Comparison */}
+      {/*  Table Comparison */}
       <div className="overflow-x-auto rounded-xl shadow-lg">
         <table className="w-full border-collapse overflow-hidden">
           <thead>
@@ -88,7 +88,7 @@ export default function CompareStats({ district1, district2, data1, data2 }) {
         </table>
       </div>
 
-      {/* 📈 Bar Chart Comparison */}
+      {/*  Bar Chart Comparison */}
       <div className="bg-white rounded-2xl p-6 shadow-md">
         <h3 className="text-xl font-semibold text-gray-800 mb-4 text-center">
           {t("app.components.districtComparison.CompareStats.key_metrics_comparison")}

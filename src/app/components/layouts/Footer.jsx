@@ -3,7 +3,6 @@ import { useLanguage } from "@/app/context/LanguageContext";
 
 export default function Footer() {
   const { t } = useLanguage();
-  console.log(t);
 
   return (
     <footer className=" py-6 border-t border-gray-200 bg-gray-50">

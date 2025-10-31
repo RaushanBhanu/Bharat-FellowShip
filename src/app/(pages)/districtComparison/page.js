@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import CompareStats from "../../components/districtComparison/CompareStats";
 import LoadingPage from "../../components/common/LoadingPage";
 import NoDataPage from "../../components/common/NoDataPage";
-import { useLanguage } from "@/app/context/LanguageContext"; // ✅ custom hook
+import { useLanguage } from "@/app/context/LanguageContext"; // custom hook
 
 export default function ComparePage() {
     const params = useSearchParams();
@@ -17,7 +17,7 @@ export default function ComparePage() {
     const [data2, setData2] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const { t } = useLanguage(); // 🌐 Translation hook
+    const { t } = useLanguage(); //  Translation hook
 
     const API_BASE =
         "https://api.data.gov.in/resource/ee03643a-ee4c-48c2-ac30-9f2ff26ab722";
@@ -55,13 +55,13 @@ export default function ComparePage() {
         if (district1 && district2 && year) fetchData();
     }, [district1, district2, year]);
 
-    // 🕓 Loading State
+    // Loading State
     if (loading)
         return (
             <LoadingPage text={t("app.pages.districtComparison.loading_comparison")} />
         );
 
-    // 🚫 No Data Found
+    // No Data Found
     if (!data1?.length || !data2?.length)
         return (
             <div className="min-h-screen flex flex-col justify-center items-center text-center p-10">
@@ -74,7 +74,7 @@ export default function ComparePage() {
             </div>
         );
 
-    // 📊 Render Comparison Stats
+    // Render Comparison Stats
     return (
         <div className="p-6 md:px-20 py-10 space-y-16 mt-16">
             <h1 className="text-3xl font-bold text-gray-800">

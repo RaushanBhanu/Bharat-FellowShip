@@ -20,7 +20,7 @@ export const LanguageProvider = ({ children }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const languages = ["English", "हिन्दी", "मराठी", "ગુજરાતી"];
 
-  // 🔹 Load language from localStorage only once
+  //  Load language from localStorage only once
   useEffect(() => {
     const storedLang = localStorage.getItem("selectedLang");
     if (storedLang && languages.includes(storedLang)) {
@@ -29,7 +29,7 @@ export const LanguageProvider = ({ children }) => {
     setIsLoaded(true); 
   }, []);
 
-  // 🔹 Save language changes
+  //  Save language changes
   useEffect(() => {
     if (isLoaded) {
       localStorage.setItem("selectedLang", selectedLang);
@@ -50,7 +50,7 @@ export const LanguageProvider = ({ children }) => {
     return replacePlaceholders(rawText || key, values);
   };
 
-  // 🔹 Prevent flicker by not rendering children until language is loaded
+  //  Prevent flicker by not rendering children until language is loaded
   if (!isLoaded) {
     return (
       <div className="flex justify-center items-center h-screen text-gray-600">
