@@ -33,7 +33,7 @@ const ChartsSection = ({ data }) => {
   if (!data || data.length === 0) return null;
 
   return (
-    <div className="space-y-10 sm:space-y-14 mt-10 sm:mt-16">
+    <div className="space-y-10 sm:space-y-14 mt-10 sm:mt-16 overflow-hidden">
       {/* 🔹 Section Title */}
       <h2 className="text-xl sm:text-2xl font-bold text-gray-800">
         {t(
